@@ -1,0 +1,7 @@
+<%= render partial: "layouts/errors", locals: { object: @business} %>
+
+<%= form_for @business do |f| %>
+  <%= f.label :business %>
+  <%= f.text_field :business %>
+  <%= f.submit %>
+<% end %>

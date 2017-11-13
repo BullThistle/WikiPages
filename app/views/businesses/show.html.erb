@@ -1,0 +1,6 @@
+<h1><%= @business.name %></h1>
+
+<p><%= link_to "Edit", edit_business_path(@business) %></p>
+<p><%= link_to "Delete", business_path(@business),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
