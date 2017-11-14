@@ -1,6 +1,31 @@
-<h1><%= @business.name %></h1>
+<h1><%= @business.business %></h1>
 
-<p><%= link_to "Edit", edit_business_path(@business) %></p>
-<p><%= link_to "Delete", business_path(@business),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></p>
+<% if @business.locations.any? %>
+  <h4>Here are the locations for this business:</h4>
+
+  <ul>
+    <% @business.locations.each do |location| %>
+      <li>
+        <%= location.name %> |
+        <%= location.address %> |
+        <%= location.phone %> |
+        <%= location.website %> |
+        <%= location.open %> |
+        <%= location.close %> |
+        <%= link_to "Edit", edit_business_location_path(@business, location) %> |
+        <%= link_to "Delete", business_location_path(@business, location),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no locations yet!</p>
+<% end %>
+
+<p><%= link_to "Add a location", new_business_location_path(@business) %></p>
+<p><%= link_to "Delete business", business_path(@business),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to businesses", businesses_path %></p>
