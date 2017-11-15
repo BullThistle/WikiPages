@@ -2,6 +2,10 @@
 
 <%= form_for @business do |f| %>
   <%= f.label :business %>
-  <%= f.text_field :business %>
-  <%= f.submit %>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.text_field :business %>
+    </div>
+  </div>
+  <%= f.submit :class => 'button' %>
 <% end %>

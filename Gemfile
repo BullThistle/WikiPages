@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'zurb-foundation'
-gem "foundation-rails", "= 5.5.2.1"
+gem "foundation-rails" #, "= 5.5.2.1"
 
 
 group :development, :test do
